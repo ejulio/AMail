@@ -2,7 +2,7 @@
 
 namespace AMail.Dominio.Treinamento
 {
-    public class GeradorDadosTreinamento
+    public class GeradorDadosTreinamento : IGeradorDadosTreinamento
     {
         private readonly IGeradorCaracteristicas geradorCaracteristicas;
         private IDictionary<string, int> identificadoresClasses;
