@@ -36,8 +36,7 @@ namespace AMail.Testes.Dominio.Treinamento
 
             var dadosTreinamento = geradorDadosTreinamento.Extrair(emailsRecebidos);
 
-            dadosTreinamento.QuantidadeClasses.Should().Be(2);
-            var classes = new[] { 0, 0, 1 };
+            var classes = new[] { -1, -1, 1 };
             dadosTreinamento.Saidas.Should().ContainInOrder(classes);
             dadosTreinamento.Entradas.Should().OnlyContain(a => a == caracteristicas);
         }

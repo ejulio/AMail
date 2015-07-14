@@ -17,7 +17,6 @@ namespace AMail.Testes.Dominio.Treinamento
 
             dadosTreinamento.Adicionar(caracteristicas, classe);
 
-            dadosTreinamento.QuantidadeClasses.Should().Be(1);
             dadosTreinamento.Saidas.Should().HaveCount(1);
             dadosTreinamento.Saidas.Should().OnlyContain(s => s == 0);
             dadosTreinamento.Entradas.Should().HaveCount(1);
@@ -43,7 +42,6 @@ namespace AMail.Testes.Dominio.Treinamento
             dadosTreinamento.Adicionar(caracteristicas[2], classes[2]);
             dadosTreinamento.Adicionar(caracteristicas[3], classes[3]);
 
-            dadosTreinamento.QuantidadeClasses.Should().Be(2);
             dadosTreinamento.Saidas.Should().HaveSameCount(classes);
             dadosTreinamento.Entradas.Should().HaveSameCount(caracteristicas);
 

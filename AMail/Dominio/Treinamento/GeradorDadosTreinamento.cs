@@ -30,12 +30,10 @@ namespace AMail.Dominio.Treinamento
 
         private int ObterClasse(EmailRecebido emailRecebido)
         {
-            if (identificadoresClasses.ContainsKey(emailRecebido.Categoria.Descricao))
-                return identificadoresClasses[emailRecebido.Categoria.Descricao];
+            if (emailRecebido.Categoria.Descricao.ToLower() == "spam")
+                return -1;
 
-            identificador++;
-            identificadoresClasses[emailRecebido.Categoria.Descricao] = identificador;
-            return identificador;
+            return 1;
         }
     }
 }
