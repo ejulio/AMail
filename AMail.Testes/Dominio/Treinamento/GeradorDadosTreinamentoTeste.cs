@@ -31,10 +31,15 @@ namespace AMail.Testes.Dominio.Treinamento
                 new EmailRecebido("Mensagem de teste", "mensagem normal") { Categoria = inbox }
             };
 
+            var caracteristicas = new[] { 3.7, 1.9 };
+            geradorCaracteristicas.Extrair(Arg.Any<EmailRecebido>()).Returns(caracteristicas);
+
             var dadosTreinamento = geradorDadosTreinamento.Extrair(emailsRecebidos);
 
             dadosTreinamento.QuantidadeClasses.Should().Be(2);
-            //dadosTreinamento.Saidas.Should().Be();
+            var classes = new[] { 0, 0, 1 };
+            dadosTreinamento.Saidas.Should().ContainInOrder(classes);
+            dadosTreinamento.Entradas.Should().OnlyContain(a => a == caracteristicas);
         }
     }
 }

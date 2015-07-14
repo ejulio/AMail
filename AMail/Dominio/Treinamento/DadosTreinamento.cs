@@ -5,7 +5,10 @@ namespace AMail.Dominio.Treinamento
 {
     public class DadosTreinamento
     {
-        public int QuantidadeClasses { get; private set; }
+        public int QuantidadeClasses
+        {
+            get { return classes.Count; }
+        }
 
         public int[] Saidas
         {
@@ -16,21 +19,22 @@ namespace AMail.Dominio.Treinamento
             get { return entradas.ToArray(); }
         }
 
-        private LinkedList<int> saidas;
-        private LinkedList<double[]> entradas; 
+        private readonly LinkedList<int> saidas;
+        private readonly LinkedList<double[]> entradas;
+        private readonly HashSet<int> classes; 
 
         public DadosTreinamento()
         {
             saidas = new LinkedList<int>();
             entradas = new LinkedList<double[]>();
-            QuantidadeClasses = 0;
+            classes = new HashSet<int>();
         }
 
         public void Adicionar(double[] caracteristicas, int classe)
         {
-            entradas.AddFirst(caracteristicas);
-            saidas.AddFirst(classe);
-            QuantidadeClasses++;
+            entradas.AddLast(caracteristicas);
+            saidas.AddLast(classe);
+            classes.Add(classe);
         }
     }
 }
