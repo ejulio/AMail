@@ -89,6 +89,7 @@
     <Compile Include="Dominio\Classificacao\IAlgoritmoClassificacao.cs" />
     <Compile Include="Dominio\Classificacao\Svm.cs" />
     <Compile Include="Dominio\ClassificadorEmail.cs" />
+    <Compile Include="Dominio\ClassificadorEmailFactory.cs" />
     <Compile Include="Dominio\Entidades\Categoria.cs" />
     <Compile Include="Dominio\Entidades\EmailRecebido.cs" />
     <Compile Include="Dominio\Caracteristicas\GeradorCaracteristicas.cs" />
