@@ -29,10 +29,10 @@ namespace AMail.Dominio
         {
             var listaEmails = new[]
             {
-                new EmailRecebido("Este é um spam spam spam", "Corpo do spam que corresponde à um spam") { Categoria = Spam }, // [3, 2]
+                new EmailRecebido("Este é um spam spam spam spam", "Corpo do email que corresponde à um spam") { Categoria = Spam }, // [4, 1]
                 new EmailRecebido("Essa mensagem não é spam", "Este texto está ok") { Categoria = Inbox }, // [1, 0]
-                new EmailRecebido("Spam! Ser ou não ser spam", "Isso sim é um spam na minha lista de spam") { Categoria = Spam }, // [2, 2]
-                new EmailRecebido("Dude, I'm a super spam", "Estamos aqui com um novo spam na sua lista de spam") { Categoria = Spam }, // [1, 2]
+                new EmailRecebido("Spam Super Spam Ser ou não ser spam", "Isso sim é um spam na minha lista de spam") { Categoria = Spam }, // [3, 2]
+                new EmailRecebido("Dude, I'm a super spam", "Spam Estamos aqui com um novo spam na sua lista de spam") { Categoria = Spam }, // [1, 3]
                 new EmailRecebido("Sem chance dessa oferta ser um spam", "Este email até poderia ser um spam") { Categoria = Inbox } // [1, 1]
             };
 
