@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
+﻿
+using AMail.Util.Colecoes;
 
 namespace AMail.Dominio.Treinamento
 {
     public class GeradorDadosTreinamento : IGeradorDadosTreinamento
     {
         private readonly IGeradorCaracteristicas geradorCaracteristicas;
-        private IDictionary<string, int> identificadoresClasses;
-        private int identificador;
+        private readonly IColecaoChaveValor<Categoria, int> colecaoChaveValor;
 
-        public GeradorDadosTreinamento(IGeradorCaracteristicas geradorCaracteristicas)
+        public GeradorDadosTreinamento(IGeradorCaracteristicas geradorCaracteristicas, IColecaoChaveValor<Categoria, int> colecaoChaveValor)
         {
             this.geradorCaracteristicas = geradorCaracteristicas;
-            identificadoresClasses = new Dictionary<string, int>();
-            identificador = -1;
+            this.colecaoChaveValor = colecaoChaveValor;
         }
 
         public DadosTreinamento Extrair(EmailRecebido[] emailsRecebidos)
@@ -21,19 +20,16 @@ namespace AMail.Dominio.Treinamento
             foreach (var emailRecebido in emailsRecebidos)
             {
                 var caracteristicas = geradorCaracteristicas.Extrair(emailRecebido);
-                var classe = ObterClasse(emailRecebido);
+                var classe = colecaoChaveValor.ObterValor(emailRecebido.Categoria);
                 dadosTreinamento.Adicionar(caracteristicas, classe);
             }
 
             return dadosTreinamento;
         }
 
-        private int ObterClasse(EmailRecebido emailRecebido)
+        public Categoria ObterCategoria(int classe)
         {
-            if (emailRecebido.Categoria.Descricao.ToLower() == "spam")
-                return -1;
-
-            return 1;
+            return colecaoChaveValor.ObterChave(classe);
         }
     }
 }

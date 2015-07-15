@@ -67,6 +67,7 @@
     <Compile Include="Dominio\Treinamento\DadosTreinamentoTeste.cs" />
     <Compile Include="Dominio\Treinamento\GeradorDadosTreinamentoTeste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Colecoes\ColecaoChaveValorTeste.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AMail\AMail.csproj">

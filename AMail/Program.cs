@@ -11,6 +11,7 @@ namespace AMail
             /*
              * TODO:
              * - Retornar a categoria do Email ao invés do número da classe no ClassificadorEmail
+             * - Criar comandos para manipular os emaisl
              */
 
             var spam = new Categoria("spam");

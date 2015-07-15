@@ -9,7 +9,7 @@ namespace AMail.Dominio
         {
             var svm = new Svm();
             var geradorCaracteristicas = new GeradorCaracteristicas();
-            var geradorDadosTreinamento = new GeradorDadosTreinamento(geradorCaracteristicas);
+            var geradorDadosTreinamento = new GeradorDadosTreinamento(geradorCaracteristicas, null);
             return new ClassificadorEmail(svm, geradorCaracteristicas, geradorDadosTreinamento);
         }
     }

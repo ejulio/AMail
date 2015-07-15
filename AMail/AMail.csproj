@@ -98,6 +98,8 @@
     <Compile Include="Dominio\Treinamento\IGeradorDadosTreinamento.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\Colecoes\ColecaoChaveValor.cs" />
+    <Compile Include="Util\Colecoes\IColecaoChaveValor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
