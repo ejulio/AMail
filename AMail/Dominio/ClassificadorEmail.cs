@@ -3,7 +3,7 @@ using AMail.Dominio.Treinamento;
 
 namespace AMail.Dominio
 {
-    public class ClassificadorEmail
+    public class ClassificadorEmail : IClassificadorEmail
     {
         private readonly IAlgoritmoClassificacao algoritmoClassificacao;
         private readonly IGeradorCaracteristicas geradorCaracteristicas;
@@ -22,10 +22,11 @@ namespace AMail.Dominio
             algoritmoClassificacao.Treinar(dadosTreinamento);
         }
 
-        public int Classificar(EmailRecebido email)
+        public Categoria Classificar(EmailRecebido email)
         {
             var caracteristicas = geradorCaracteristicas.Extrair(email);
-            return algoritmoClassificacao.Classificar(caracteristicas);
+            var classe = algoritmoClassificacao.Classificar(caracteristicas);
+            return geradorDadosTreinamento.ObterCategoria(classe);
         }
     }
 }

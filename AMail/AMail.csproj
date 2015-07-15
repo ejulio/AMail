@@ -85,6 +85,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacao\Comandos\ComandoListarEmails.cs" />
+    <Compile Include="Aplicacao\Comandos\ComandoNovoEmail.cs" />
+    <Compile Include="Aplicacao\Comandos\GerenciadorComandos.cs" />
+    <Compile Include="Aplicacao\Comandos\IComando.cs" />
     <Compile Include="Dominio\Caracteristicas\IGeradorCaracteristicas.cs" />
     <Compile Include="Dominio\Classificacao\IAlgoritmoClassificacao.cs" />
     <Compile Include="Dominio\Classificacao\Svm.cs" />
@@ -93,6 +97,9 @@
     <Compile Include="Dominio\Entidades\Categoria.cs" />
     <Compile Include="Dominio\Entidades\EmailRecebido.cs" />
     <Compile Include="Dominio\Caracteristicas\GeradorCaracteristicas.cs" />
+    <Compile Include="Dominio\GerenciadorEmails.cs" />
+    <Compile Include="Dominio\IClassificadorEmail.cs" />
+    <Compile Include="Dominio\IGerenciadorEmails.cs" />
     <Compile Include="Dominio\Treinamento\DadosTreinamento.cs" />
     <Compile Include="Dominio\Treinamento\GeradorDadosTreinamento.cs" />
     <Compile Include="Dominio\Treinamento\IGeradorDadosTreinamento.cs" />

@@ -3,5 +3,6 @@
     public interface IGeradorDadosTreinamento
     {
         DadosTreinamento Extrair(EmailRecebido[] emailsRecebidos);
+        Categoria ObterCategoria(int classe);
     }
 }

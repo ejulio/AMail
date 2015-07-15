@@ -64,6 +64,7 @@
     <Compile Include="Dominio\Caracteristicas\GeradorCaracteristicasTeste.cs" />
     <Compile Include="Dominio\Classificacao\SvmTeste.cs" />
     <Compile Include="Dominio\ClassificadorEmailTeste.cs" />
+    <Compile Include="Dominio\GerenciadorEmailsTeste.cs" />
     <Compile Include="Dominio\Treinamento\DadosTreinamentoTeste.cs" />
     <Compile Include="Dominio\Treinamento\GeradorDadosTreinamentoTeste.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

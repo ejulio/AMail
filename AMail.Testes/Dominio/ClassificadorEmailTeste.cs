@@ -48,15 +48,17 @@ namespace AMail.Testes.Dominio
         {
             var email = new EmailRecebido("email", "email");
             const int classeEsperada = 1;
+            var categoriaEsperada = new Categoria("Esperada");
+            geradorDadosTreinamento.ObterCategoria(classeEsperada).Returns(categoriaEsperada);
 
             var caracteristicas = new[] {2.6, 1.9};
             geradorCaracteristicas.Extrair(email).Returns(caracteristicas);
             algoritmoClassificacao.Classificar(caracteristicas).Returns(classeEsperada);
 
-            var classe = classificadorEmail.Classificar(email);
+            var categoria = classificadorEmail.Classificar(email);
 
             algoritmoClassificacao.Received().Classificar(caracteristicas);
-            classe.Should().Be(classeEsperada);
+            categoria.Should().Be(categoriaEsperada);
         }
     }
 }
