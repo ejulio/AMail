@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace AMail.Dominio
 {
@@ -15,7 +16,7 @@ namespace AMail.Dominio
 
         private double QuantidadeOcorrenciasDaPalavras(string texto, string palavra)
         {
-            return texto.Split(' ').Count(s => s == palavra);
+            return texto.Split(' ').Count(s => s.Equals(palavra, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

@@ -18,12 +18,12 @@ namespace AMail.Testes
         [TestMethod]
         public void extraindo_caracteristicas_de_um_email()
         {
-            var email = new EmailRecebido("Este é um spam que contém spam", "Corpo da mensagem que é considerada um spam ...");
+            var email = new EmailRecebido("Este é um spam que contém Spam", "Corpo da mensagem que é considerada um spam Spam ...");
             var caracteristicas = geradorCaracteristicas.Extrair(email);
 
             caracteristicas.Should().HaveCount(2);
             caracteristicas[0].Should().Be(2);
-            caracteristicas[1].Should().Be(1);
+            caracteristicas[1].Should().Be(2);
         }
     }
 }

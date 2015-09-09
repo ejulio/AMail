@@ -14,7 +14,9 @@ namespace AMail.Dominio.Classificacao
             if (svm == null)
                 throw new InvalidOperationException("É preciso treinar o algoritmo antes de classificar.");
 
-            return Math.Sign(svm.Compute(caracteristicas));
+            double output;
+            var classe = svm.Compute(caracteristicas, out output);
+            return classe;
         }
 
         public void Treinar(DadosTreinamento dadosTreinamento)
