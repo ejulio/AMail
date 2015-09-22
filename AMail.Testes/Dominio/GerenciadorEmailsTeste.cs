@@ -1,4 +1,5 @@
 ﻿using AMail.Dominio;
+using AMail.Dominio.Entidades;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;

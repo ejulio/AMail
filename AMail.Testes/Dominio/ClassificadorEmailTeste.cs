@@ -1,5 +1,7 @@
 ﻿using AMail.Dominio;
+using AMail.Dominio.Caracteristicas;
 using AMail.Dominio.Classificacao;
+using AMail.Dominio.Entidades;
 using AMail.Dominio.Treinamento;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

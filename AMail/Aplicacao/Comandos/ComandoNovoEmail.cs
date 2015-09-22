@@ -1,5 +1,6 @@
 ﻿using AMail.Dominio;
 using System;
+using AMail.Dominio.Entidades;
 
 namespace AMail.Aplicacao.Comandos
 {

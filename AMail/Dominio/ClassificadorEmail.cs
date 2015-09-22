@@ -1,4 +1,6 @@
-﻿using AMail.Dominio.Classificacao;
+﻿using AMail.Dominio.Caracteristicas;
+using AMail.Dominio.Classificacao;
+using AMail.Dominio.Entidades;
 using AMail.Dominio.Treinamento;
 
 namespace AMail.Dominio

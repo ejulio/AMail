@@ -1,8 +1,9 @@
-﻿using AMail.Dominio;
+﻿using AMail.Dominio.Caracteristicas;
+using AMail.Dominio.Entidades;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace AMail.Testes
+namespace AMail.Testes.Dominio.Caracteristicas
 {
     [TestClass]
     public class GeradorCaracteristicasTeste

@@ -1,4 +1,6 @@
-﻿namespace AMail.Dominio.Treinamento
+﻿using AMail.Dominio.Entidades;
+
+namespace AMail.Dominio.Treinamento
 {
     public interface IGeradorDadosTreinamento
     {

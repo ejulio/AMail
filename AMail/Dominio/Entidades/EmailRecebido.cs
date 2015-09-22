@@ -1,4 +1,4 @@
-﻿namespace AMail.Dominio
+﻿namespace AMail.Dominio.Entidades
 {
     public class EmailRecebido
     {

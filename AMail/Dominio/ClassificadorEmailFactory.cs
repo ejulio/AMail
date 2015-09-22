@@ -1,4 +1,6 @@
-﻿using AMail.Dominio.Classificacao;
+﻿using AMail.Dominio.Caracteristicas;
+using AMail.Dominio.Classificacao;
+using AMail.Dominio.Entidades;
 using AMail.Dominio.Treinamento;
 using AMail.Util.Colecoes;
 
@@ -6,14 +8,16 @@ namespace AMail.Dominio
 {
     public class ClassificadorEmailFactory
     {
-        private readonly Categoria Spam = new Categoria("spam");
+        private readonly Categoria Ofertas = new Categoria("ofertas");
+        private readonly Categoria Social = new Categoria("social");
         private readonly Categoria Inbox = new Categoria("inbox");
 
         public ClassificadorEmail Criar()
         {
             var colecaoChaveValor = new ColecaoChaveValor<Categoria, int>();
-            colecaoChaveValor.Adicionar(Spam, -1);
-            colecaoChaveValor.Adicionar(Inbox, 1);
+            colecaoChaveValor.Adicionar(Inbox, 0);
+            colecaoChaveValor.Adicionar(Ofertas, 1);
+            colecaoChaveValor.Adicionar(Social, 2);
 
             var svm = new Svm();
             var geradorCaracteristicas = new GeradorCaracteristicas();
@@ -29,11 +33,11 @@ namespace AMail.Dominio
         {
             var listaEmails = new[]
             {
-                new EmailRecebido("Este é um spam spam spam spam", "Corpo do email que corresponde à um spam") { Categoria = Spam }, // [4, 1]
-                new EmailRecebido("Essa mensagem não é spam", "Este texto está ok") { Categoria = Inbox }, // [1, 0]
-                new EmailRecebido("Spam Super Spam Ser ou não ser spam", "Isso sim é um spam na minha lista de spam") { Categoria = Spam }, // [3, 2]
-                new EmailRecebido("Dude, I'm a super spam", "Spam Estamos aqui com um novo spam na sua lista de spam") { Categoria = Spam }, // [1, 3]
-                new EmailRecebido("Sem chance dessa oferta ser um spam", "Este email até poderia ser um spam") { Categoria = Inbox } // [1, 1]
+                new EmailRecebido("Vai perder? Só hoje esse descontão!", "Só hoje na lojinha do joão tem esse desconto") { Categoria = Ofertas }, // [4, 1]
+                new EmailRecebido("Tem desconto aqui", "Só hoje para quem comprar pelo nosso perfil na rede social") { Categoria = Ofertas }, // [1, 0]
+                new EmailRecebido("Atualizamos o nosso perfil", "Olá pessoa, tudo bem? Você já conferiu o perfil atualizado da nossa loja") { Categoria = Social }, // [3, 2]
+                new EmailRecebido("O super perfil", "O seu amigo Teste atualizou o perfil") { Categoria = Social }, // [1, 3]
+                new EmailRecebido("Desconto", "Ae manolo, já comprasse aquele celular?") { Categoria = Inbox } // [1, 1]
             };
 
             classificadorEmail.Treinar(listaEmails);

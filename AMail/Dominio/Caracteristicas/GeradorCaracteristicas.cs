@@ -1,7 +1,8 @@
-﻿using System;
+﻿using AMail.Dominio.Entidades;
+using System;
 using System.Linq;
 
-namespace AMail.Dominio
+namespace AMail.Dominio.Caracteristicas
 {
     public class GeradorCaracteristicas : IGeradorCaracteristicas
     {

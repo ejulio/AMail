@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using AMail.Dominio.Entidades;
 
 namespace AMail.Dominio
 {

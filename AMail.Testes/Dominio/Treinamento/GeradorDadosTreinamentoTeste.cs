@@ -1,4 +1,5 @@
-﻿using AMail.Dominio;
+﻿using AMail.Dominio.Caracteristicas;
+using AMail.Dominio.Entidades;
 using AMail.Dominio.Treinamento;
 using AMail.Util.Colecoes;
 using FluentAssertions;

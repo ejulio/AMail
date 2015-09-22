@@ -1,4 +1,6 @@
 ﻿
+using AMail.Dominio.Caracteristicas;
+using AMail.Dominio.Entidades;
 using AMail.Util.Colecoes;
 
 namespace AMail.Dominio.Treinamento
