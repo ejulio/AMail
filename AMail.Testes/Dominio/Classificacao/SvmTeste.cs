@@ -24,8 +24,9 @@ namespace AMail.Testes.Dominio.Classificacao
         public void classificando_caracteristicas()
         {
             var dadosTreinamento = new DadosTreinamento();
-            dadosTreinamento.Adicionar(new [] { 1.0, 1.0 }, -1);
+            dadosTreinamento.Adicionar(new [] { 1.0, 1.0 }, 0);
             dadosTreinamento.Adicionar(new [] { 0.5, 0.5 }, 1);
+            dadosTreinamento.Adicionar(new [] { 1.5, 1.5 }, 2);
 
             var svm = new Svm();
 

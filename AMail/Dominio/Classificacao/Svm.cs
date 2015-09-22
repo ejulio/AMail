@@ -7,7 +7,7 @@ namespace AMail.Dominio.Classificacao
 {
     public class Svm : IAlgoritmoClassificacao
     {
-        private SupportVectorMachine svm;
+        private MulticlassSupportVectorMachine svm;
 
         public int Classificar(double[] caracteristicas)
         {
@@ -21,13 +21,16 @@ namespace AMail.Dominio.Classificacao
 
         public void Treinar(DadosTreinamento dadosTreinamento)
         {
-            svm = new SupportVectorMachine(dadosTreinamento.Entradas[0].Length);
-            var smo = new SequentialMinimalOptimization(svm, dadosTreinamento.Entradas, dadosTreinamento.Saidas)
+            svm = new MulticlassSupportVectorMachine(dadosTreinamento.Entradas[0].Length, dadosTreinamento.Saidas.Length);
+            var learning = new MulticlassSupportVectorLearning(svm, dadosTreinamento.Entradas, dadosTreinamento.Saidas)
             {
-                Complexity = 1.0
+                Algorithm = (machine, inputs, outputs, a, b) => new SequentialMinimalOptimization(machine, inputs, outputs)
+                {
+                    Complexity = 1.0
+                }
             };
 
-            smo.Run();
+            learning.Run();
         }
     }
 }
