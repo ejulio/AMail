@@ -5,8 +5,8 @@ namespace AMail.Dominio.Caracteristicas
 {
     public class GeradorCaracteristicas : IGeradorCaracteristicas
     {
-        private string[] palavrasRedesSociais = new[] { "amigo", "amigos", "perfil" };
-        private string[] palavrasAnuncios = new[] { "desconto", "descontão", "oferta", "loja" };
+        private string[] palavrasRedesSociais = { "amigo", "amigos", "perfil" };
+        private string[] palavrasAnuncios = { "desconto", "descontão", "oferta", "lojinha", "loja", "comprar", "comprasse" };
 
         public double[] Extrair(EmailRecebido email)
         {
@@ -19,12 +19,12 @@ namespace AMail.Dominio.Caracteristicas
 
         private double ContarPalavrasSocial(string texto)
         {
-            return texto.Split(' ').Count(palavra => palavrasRedesSociais.Contains(palavra));
+            return texto.Split(' ').Count(palavra => palavrasRedesSociais.Contains(palavra.ToLower()));
         }
 
         private double ContarPalavrasAnuncio(string texto)
         {
-            return texto.Split(' ').Count(palavra => palavrasAnuncios.Contains(palavra));
+            return texto.Split(' ').Count(palavra => palavrasAnuncios.Contains(palavra.ToLower()));
         }
     }
 }

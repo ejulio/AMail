@@ -1,5 +1,7 @@
 ﻿using Accord.MachineLearning.VectorMachines;
 using Accord.MachineLearning.VectorMachines.Learning;
+using Accord.Math;
+using Accord.Statistics.Kernels;
 using AMail.Dominio.Treinamento;
 using System;
 
@@ -21,7 +23,11 @@ namespace AMail.Dominio.Classificacao
 
         public void Treinar(DadosTreinamento dadosTreinamento)
         {
-            svm = new MulticlassSupportVectorMachine(dadosTreinamento.Entradas[0].Length, dadosTreinamento.Saidas.Length);
+            var kernel = new Linear(1);
+            var quantidadeCaracteristicas = dadosTreinamento.Entradas[0].Length;
+            var quantidadeClasses = dadosTreinamento.Saidas.Distinct().Length;
+            svm = new MulticlassSupportVectorMachine(quantidadeCaracteristicas, kernel, quantidadeClasses);
+
             var learning = new MulticlassSupportVectorLearning(svm, dadosTreinamento.Entradas, dadosTreinamento.Saidas)
             {
                 Algorithm = (machine, inputs, outputs, a, b) => new SequentialMinimalOptimization(machine, inputs, outputs)

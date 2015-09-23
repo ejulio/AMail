@@ -1,4 +1,5 @@
 ﻿using AMail.Dominio;
+using AMail.Dominio.Caracteristicas;
 using System;
 using System.Collections.Generic;
 
@@ -13,7 +14,7 @@ namespace AMail.Aplicacao.Comandos
             comandos = new Dictionary<string, IComando>
             {
                 {"novo", new ComandoNovoEmail(gerenciadorEmails)},
-                {"lista", new ComandoListarEmails(gerenciadorEmails)}
+                {"lista", new ComandoListarEmails(gerenciadorEmails, new GeradorCaracteristicas())}
             };
         }
 

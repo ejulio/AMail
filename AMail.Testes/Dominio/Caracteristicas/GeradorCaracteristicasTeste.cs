@@ -19,7 +19,7 @@ namespace AMail.Testes.Dominio.Caracteristicas
         [TestMethod]
         public void extraindo_caracteristicas_de_um_email()
         {
-            var email = new EmailRecebido("Esse desconto está com cara de bons amigos", "Um desconto especial da loja x para você que é nosso amigo");
+            var email = new EmailRecebido("Esse Desconto está com cara de bons amigos", "Um desconto especial da loja x para você que é nosso amigo");
             var caracteristicas = geradorCaracteristicas.Extrair(email);
 
             caracteristicas.Should().HaveCount(2);

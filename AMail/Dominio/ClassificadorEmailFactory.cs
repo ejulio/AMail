@@ -33,11 +33,12 @@ namespace AMail.Dominio
         {
             var listaEmails = new[]
             {
-                new EmailRecebido("Vai perder? Só hoje esse descontão!", "Só hoje na lojinha do joão tem esse desconto") { Categoria = Ofertas }, // [4, 1]
-                new EmailRecebido("Tem desconto aqui", "Só hoje para quem comprar pelo nosso perfil na rede social") { Categoria = Ofertas }, // [1, 0]
-                new EmailRecebido("Atualizamos o nosso perfil", "Olá pessoa, tudo bem? Você já conferiu o perfil atualizado da nossa loja") { Categoria = Social }, // [3, 2]
-                new EmailRecebido("O super perfil", "O seu amigo Teste atualizou o perfil") { Categoria = Social }, // [1, 3]
-                new EmailRecebido("Desconto", "Ae manolo, já comprasse aquele celular?") { Categoria = Inbox } // [1, 1]
+                new EmailRecebido("Vai perder? Só hoje esse descontão !", "Só hoje na lojinha do joão tem esse desconto") { Categoria = Ofertas }, // [0, 3]
+                new EmailRecebido("Tem desconto aqui", "Só hoje para quem comprar pelo nosso perfil na rede social") { Categoria = Ofertas }, // [1, 2]
+                new EmailRecebido("Atualizamos o nosso perfil", "Olá pessoa, tudo bem? Você já conferiu o perfil atualizado da nossa loja") { Categoria = Social }, // [2, 1]
+                new EmailRecebido("O super perfil", "O seu amigo Teste atualizou o perfil") { Categoria = Social }, // [3, 0]
+                new EmailRecebido("Desconto", "Ae manolo, já comprasse aquele celular?") { Categoria = Inbox }, // [0, 2]
+                new EmailRecebido("Notícia", "Divulgada foto de perfil do meliante") { Categoria = Inbox } // [1, 0]
             };
 
             classificadorEmail.Treinar(listaEmails);
